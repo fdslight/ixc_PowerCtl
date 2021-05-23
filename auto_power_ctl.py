@@ -76,7 +76,7 @@ def stop():
 def main():
     help_doc = """
     debug | start | stop
-    debug | start  --port=port
+    debug | start  [--port=port]
     debug:  windows support it
     start   only unix-like support
     stop    only unix-like support
@@ -102,13 +102,9 @@ def main():
         print(help_doc)
         return
 
-    port = None
+    port = 1999
     for k, v in opts:
         if k == "--port": port = v
-
-    if None == port:
-        print(help_doc)
-        return
 
     try:
         port = int(port)
